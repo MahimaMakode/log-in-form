@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="form.css">
+
+</head>
+
+<body>
+    <div id="main" class="main-class">
+        <div class="form-area">
+            <div class="form-left-area">
+                <div class="logo">
+                    <img src="logo.png" alt="">
+                </div>
+                <div class="image-area">
+                    <img src="image1.png" alt="">
+                </div>
+            </div>
+            <div class="form-right-area">
+                <div class="right-site">
+                    <div class="container">
+                        <!-- Login Form -->
+                        <form id="loginForm" class="active" >
+                            <h2 class="form-heading">Login</h2>
+                            <label for="email">Email</label><br>
+                            <input type="email" placeholder="Enter your Email" required>
+                            <label for="password">Password</label>
+                            <input type="password" placeholder="Enter your Password" required>
+                            <button type="submit">Login</button>
+                            <div class="toggle">
+                                Don't have an account? <a onclick="showRegister()">Register</a>
+                            </div>
+                        </form>
+
+                        <!-- Register Form -->
+                        <form id="registerForm">
+                            <h2 class="form-heading">Register</h2>
+                            <label for="name">Full Name</label>
+                            <input type="text" placeholder="Enter your Full Name" required>
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Enter your Email" required>
+                             <label for="password">Password</label>
+                            <input type="password" placeholder="Enter Password" required>
+                            <button type="submit">Register</button>
+                            <div class="toggle">
+                                Already have an account? <a onclick="showLogin()">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+<script src="form.js"></script>
+
+</html>
