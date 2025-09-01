@@ -37,54 +37,38 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* gap: 20px; */
     position: relative;
     overflow: hidden;
 }
 
 .form-left-area {
-    background-color:#700670;
+    background-color: #700670;
     width: 580px;
     height: 550px;
-    /* overflow: hidden; */
     position: relative;
 }
 
 .logo img {
     width: 25%;
-    /* position: absolute;
-    top: 0;
-    left: 10px; */
 }
 
 .image-area img {
-    /* width: 480px;
-    height: 450px;
-    position: absolute;
-    top: 60px;
-    left: 50px; */
     width: 75%;
     margin-left: 60px;
-    /* position: absolute; */
-
 }
 
 .form-right-area {
     width: 50%;
     height: 100%;
-    /* background-color: yellow; */
 }
 
 .right-site {
     width: 100%;
     height: 100%;
-    /* background-color: rgb(145, 13, 13); */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    /* text-align: center; */
-    /* margin-right: 90%; */
 }
 
 .container {
@@ -94,17 +78,13 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* text-align: center; */
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: start;
     justify-content: center;
-
 }
-
-
- form h2{
+form h2 {
     width: 130px;
     text-align: center;
     font-size: 23px;
@@ -114,26 +94,21 @@ body {
     border-radius: 50px;
     padding: 5px 20px;
     margin-bottom: 20px;
-    
-/* position: absolute; */
     text-decoration: underline;
-    
 }
-
 form {
     display: none;
     transition: 0.3s;
 }
-
 form.active {
     display: block;
 }
-label{
+label {
     font-size: 17px;
     font-weight: 550;
     color: #700670;
 }
-::placeholder{
+::placeholder {
     color: #7006707d;
 }
 input {
@@ -143,39 +118,33 @@ input {
     border: 1px solid #700670;
     border-radius: 6px;
 }
-
 button {
     width: 90%;
     padding: 10px;
-    background:#700670;
+    background: #700670;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
 }
-
 button:hover {
     background: transparent;
     color: #700670;
     border: 1px solid #700670;
     font-weight: 550;
 }
-
 .toggle {
     margin-top: 15px;
     font-size: 14px;
-       text-align: center;
+    text-align: center;
 }
-
 .toggle a {
     color: #700670;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
- 
 }
-
 .toggle a:hover {
     text-decoration: underline;
 }
@@ -193,6 +162,7 @@ button:hover {
         /* flex-direction: column; */
         width: 90%;
         height: auto;
+        padding: 20px;
     }
 
     .form-left-area {
@@ -242,6 +212,8 @@ button:hover {
         flex-direction: column;
         width: 90%;
         height: auto;
+        padding: 20px;
+        margin: 15px;
     }
 
     .form-left-area {
@@ -305,6 +277,8 @@ button:hover {
         flex-direction: column;
         width: 90%;
         height: auto;
+        padding: 20px;
+        margin: 15px;
     }
 
     .form-left-area {
