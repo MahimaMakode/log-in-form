@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaat Adda | Welcome</title>
+    <link rel="stylesheet" href="log-in.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-page">
+    <div class="food-side">
+        <a href="index.html" class="brand"><img src="" alt="xyz"></a>
+
+        <div class="food-content">
+            <span class="tagline">WELCOME TO OUR FOOD FAMILY</span>
+            <h1>Good Food.<br><span>Good Mood.</span></h1>
+            <p>Your favourite chaat, your favourite place.
+               Sign in and make every bite special.</p>
+        </div>
+
+        <div class="food-footer">
+            <span>♥</span> Made with love for chaat lovers
+        </div>
+    </div>
+
+    <div class="form-side">
+        <div class="form-box">
+
+            <a href="index.html" class="mobile-brand">
+                <img src="photos/chaatadda logo.png" alt="">
+            </a>
+
+            <div class="auth-form active" id="loginForm">
+                <div class="form-heading">
+                    <span class="small-title">WELCOME BACK!</span>
+                    <h2>Login to your account</h2>
+                    <p>Good to see you again. Let's get started.</p>
+                </div>
+
+                <form id="loginData">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail"
+                           placeholder="Enter your email" required>
+
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword"
+                           placeholder="Enter your password" required>
+
+                    <div class="form-options">
+                        <label class="remember">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" id="forgotPassword">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login Now <span>→</span></button>
+                    <p class="message" id="loginMessage"></p>
+                </form>
+
+                <div class="switch-text">
+                    Don't have an account?
+                    <button type="button" class="switch-btn" data-target="registerForm">
+                        Register
+                    </button>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="auth-form" id="registerForm">
+                <div class="form-heading">
+                    <span class="small-title">JOIN OUR FOOD FAMILY</span>
+                    <h2>Create an account</h2>
+                    <p>Register today and join the Chaat Adda family.</p>
+                </div>
+
+                <form id="registerData">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName"
+                           placeholder="Enter your full name" required>
+
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail"
+                           placeholder="Enter your email" required>
+
+                    <label for="registerPassword">Create Password</label>
+                    <input type="password" id="registerPassword"
+                           placeholder="At least 8 characters"
+                           minlength="8" required>
+
+                    <label class="terms">
+                        <input type="checkbox" id="agreeTerms" required>
+                        I agree to the Terms & Conditions
+                    </label>
+
+                    <button type="submit" class="submit-btn">
+                        Create Account <span>→</span>
+                    </button>
+                    <p class="message" id="registerMessage"></p>
+                </form>
+
+                <div class="switch-text">
+                    Already have an account?
+                    <button type="button" class="switch-btn" data-target="loginForm">
+                        Login
+                    </button>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-home">← Back to Home</a>
+
+        </div>
+    </div>
+</div>
+<script>
+    
+const forms = document.querySelectorAll(".auth-form");
+const switchButtons = document.querySelectorAll(".switch-btn");
+
+switchButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+
+        forms.forEach((form) => {
+            form.classList.remove("active");
+        });
+
+        document.getElementById(targetId).classList.add("active");
+    });
+});
+
+// Demo login only — backend is not connected
+document.getElementById("loginData").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    document.getElementById("loginMessage").textContent =
+        "Design demo only. Connect your backend to log in.";
+});
+
+// Demo registration only — backend is not connected
+document.getElementById("registerData").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    document.getElementById("registerMessage").textContent =
+        "Design demo only. Connect your backend to create an account.";
+});
+
+// Demo forgot password action
+document.getElementById("forgotPassword").addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.getElementById("loginMessage").textContent =
+        "Password reset needs an email service or backend.";
+});
+
+</script>
+
+</body>
+</html>
