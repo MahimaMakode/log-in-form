@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My profile</title><link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<div class="eyebrow">ACCOUNT SETTINGS</div><h1>My profile</h1><p>Keep your contact details up to date.</p>
+<form id="profileForm" hidden>
+  <fieldset id="profileFields" disabled>
+    <label for="fullName">Full name</label><input id="fullName" name="fullName" autocomplete="name" required maxlength="100" pattern=".*\S.*">
+    <label for="email">Email</label><input id="email" type="email" readonly>
+    <p class="hint">Your email is managed by Supabase Authentication.</p>
+    <label for="phoneNumber">Mobile / phone number</label><input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" pattern="[+]?[0-9]{7,15}" required maxlength="16">
+    <p class="hint">Use 7–15 digits with an optional + prefix. Phone numbers are not verified.</p>
+  </fieldset>
+  <button id="save" type="submit" disabled>Save changes</button>
+</form>
+<p id="message" class="message" role="status" aria-live="polite">Loading your profile…</p>
+<button id="logout" class="secondary" type="button" hidden>Log out</button>
+<a href="./login.html">Back to login</a>
+<noscript>Enable JavaScript to use your account.</noscript>
+</main>
+<script type="module">
+const $ = selector => document.querySelector(selector);
+const say = (text, kind = 'error') => { $('#message').textContent = text; $('#message').dataset.kind = kind; };
+const go = () => window.location.replace('./login.html');
+try {
+  // Capture confirmation-link failures before the SDK cleans up the URL.
+  const hash = new URLSearchParams(window.location.hash.slice(1));
+  const query = new URLSearchParams(window.location.search);
+  const callbackError = hash.get('error_description') || query.get('error_description');
+  if (callbackError) {
+    history.replaceState(null, '', window.location.pathname);
+    throw new Error(callbackError + ' Return to login to try again.');
+  }
+  const auth = await import('./auth.js');
+  auth.onAuthChange(event => { if (event === 'SIGNED_OUT') go(); });
+  const user = await auth.currentUser();
+  if (!user) { go(); }
+  else {
+    $('#logout').hidden = false;
+    $('#logout').addEventListener('click', async () => {
+      $('#logout').disabled = true;
+      try { await auth.logout(); go(); }
+      catch (error) { say(error.message); $('#logout').disabled = false; }
+    });
+    const profile = await auth.getProfile(user.id);
+    $('#fullName').value = profile.full_name || '';
+    $('#email').value = profile.email || user.email || '';
+    $('#phoneNumber').value = profile.phone_number || '';
+    $('#profileForm').hidden = false;
+    $('#profileFields').disabled = false;
+    $('#save').disabled = false;
+    say('', 'success');
+    $('#profileForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(event.currentTarget));
+      $('#save').disabled = true; $('#profileFields').disabled = true;
+      try { await auth.updateProfile(user.id, values); say('Profile saved.', 'success'); }
+      catch (error) { say(error.message); }
+      finally { $('#save').disabled = false; $('#profileFields').disabled = false; }
+    });
+  }
+} catch (error) { say(error.message || 'Could not load your profile.'); }
+</script></body></html>
