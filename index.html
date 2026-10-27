@@ -4,64 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
+    <title>Food Website</title>
     <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <div id="main" class="main-class">
-        <div class="form-area">
-            <div class="form-left-area">
-                <div class="logo">
-                    <img src="logo.png" alt="">
-                </div>
-                <div class="image-area">
-                    <img src="image1.png" alt="">
-                </div>
-            </div>
-            <div class="form-right-area">
-                <div class="right-site">
-                    <div class="container">
-                        <!-- Login Form -->
-                        <form id="loginForm" class="active" >
-                            <h2 class="form-heading">Login</h2>
-                            <label for="email">Email</label><br>
-                            <input type="email" placeholder="Enter your Email" required>
-                            <label for="password">Password</label>
-                            <input type="password" placeholder="Enter your Password" required>
-                            <button type="submit">Login</button>
-                            <div class="toggle">
-                                Don't have an account? <a onclick="showRegister()">Register</a>
-                            </div>
-                        </form>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <div class="logo-flip">
+                    <div class="logo-front">
+                        <img src="photos/chaatadda logo.png" alt="Chaat Adda Logo">
+                    </div>
 
-                        <!-- Register Form -->
-                        <form id="registerForm">
-                            <h2 class="form-heading">Register</h2>
-                            <label for="name">Full Name</label>
-                            <input type="text" placeholder="Enter your Full Name" required>
-                            <label for="email">Email</label>
-                            <input type="email" placeholder="Enter your Email" required>
-                             <label for="password">Password</label>
-                            <input type="password" placeholder="Enter Password" required>
-                            <button type="submit">Register</button>
-                            <div class="toggle">
-                                Already have an account? <a onclick="showLogin()">Login</a>
-                            </div>
-                        </form>
+                    <div class="logo-back">
+                        <p>चाट अड्डा</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+            <div class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </div>
+            <div class="log-in-btn">
+                <button><a href="log-in.html">Log in</a></button>
+            </div>
+        </nav>
+    </header>
+    <section id="hero-section" class="heropage-area">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="video/gemini_generated_video_eb277f87.mp4" type="video/mp4">
+            </video>
 
-    </div>
+            <div class="hero-section-area">
+                <p>YOUR FAVOURITE FOOD CORNER</p>
+                <h1>Har Bite Mein Chatpata Swad!</h1>
+                <span>Cravings ho kuch chatpata khane ki? Discover your favourite Indian street food, made to delight every taste bud.</span>
+            </div>
+    </section>
+    <section id="short-about-as" class="about-us-area">
+
+    </section>
 
 </body>
-<script src="script.js"></script>
 
 </html>
-
-
